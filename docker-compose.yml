@@ -1,4 +1,4 @@
-ecs:
+datomic:
     build: .
     net: "host"
     volumes:
@@ -6,10 +6,8 @@ ecs:
         - /home/vagrant:/pwd
     environment:
         AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
-        AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
-        AWS_REGION: $AWS_REGION
-        AWS_CLUSTER: $AWS_CLUSTER
     user: 1000:1000
     stdin_open: true
     tty: true
-    command: help
+    entrypoint: /opt/datomic-pro-0.9.5350/bin/datomic
+    command: describe-license
